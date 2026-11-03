@@ -1,0 +1,8 @@
+{
+  "name": "Vehicle Re-ID Uncertainty Surveillance System",
+  "description": "Real-time RF-DETR object detection, TransReID vector matching, evidential uncertainty calibration, and human-in-the-loop surveillance console.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

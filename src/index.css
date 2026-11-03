@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #050810;
+  color: #e8effc;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(0, 240, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(176, 38, 255, 0.05) 0%, transparent 40%),
+    linear-gradient(180deg, #050810 0%, #03050a 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Sci-fi grid background overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  border-color: rgba(0, 240, 255, 0.18);
+  background-color: rgba(11, 18, 32, 0.65);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+/* Glowing top edge on cards */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+  pointer-events: none;
+}
+
+.label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(0, 240, 255, 0.7);
+  font-weight: 600;
+}
+
+.field {
+  width: 100%;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgba(0, 240, 255, 0.25);
+  background-color: rgba(5, 8, 16, 0.75);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #e8effc;
+  outline: none;
+  transition: all 0.25s;
+}
+
+.field:focus {
+  border-color: #00f0ff;
+  background-color: rgba(0, 240, 255, 0.05);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+}
+
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 240, 255, 0.12);
+  border: 1px solid #00f0ff;
+  color: #00f0ff;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.25s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.45);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050810;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.4);
+}
+
+/* Print styles for high-fidelity PDF output */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  body::before {
+    display: none !important;
+  }
+  header, nav, .btn-primary, button {
+    display: none !important;
+  }
+  .card {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    page-break-inside: avoid;
+    margin-bottom: 24px !important;
+  }
+  .card::before {
+    display: none !important;
+  }
+  h1, h2, h3 {
+    color: #0f172a !important;
+  }
+  p, span, li, dt, dd {
+    color: #334155 !important;
+  }
+  pre, code {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+}
+
